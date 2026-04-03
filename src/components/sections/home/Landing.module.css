@@ -1,0 +1,82 @@
+.landing {
+    position: relative;
+    min-height: 100svh;
+    overflow: hidden;
+    background: var(--color-light-gray);
+  }
+  
+  .backgroundWrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  
+  .backgroundImage {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .topLeftImageWrap,
+  .bottomRightImageWrap,
+  .centerContent {
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .topLeftImageWrap {
+    top: 80px;
+    left: 15px;
+    width: 150px;
+  }
+  
+  .bottomRightImageWrap {
+    right: 15px;
+    bottom: 120px;
+    width: 180px;
+  }
+  
+  .floatingImage {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .centerContent {
+    top: 50%;
+    left: 50%;
+    width: calc(100% - 30px);
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+  }
+  
+  .title {
+    color: var(--color-black);
+  }
+  
+  .cta {
+    color: var(--color-black);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  
+  @media (min-width: 992px) {
+    .topLeftImageWrap {
+      top: 80px;
+      left: 20px;
+      width: 260px;
+    }
+  
+    .bottomRightImageWrap {
+      right: 20px;
+      bottom: 40px;
+      width: 320px;
+    }
+  
+    .centerContent {
+      width: auto;
+    }
+  }

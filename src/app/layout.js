@@ -1,5 +1,5 @@
 import "./globals.css";
-import { koho } from "./fonts";
+import { koho } from "../lib/fonts";
 
 export const metadata = {
   title: "Future Eshop",
