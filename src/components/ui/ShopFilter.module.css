@@ -1,0 +1,36 @@
+.filterRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+
+  background: rgb(255 255 255 / 95%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.tag {
+  border: none;
+  border-radius: 0;
+  background: var(--color-light-gray);
+  color: var(--color-black);
+  padding: 2px 5px;
+  cursor: pointer;
+  font-size: var(--text-16-20-medium-size);
+  line-height: var(--text-16-20-medium-line);
+  font-weight: var(--text-16-20-medium-weight);
+  font-family: inherit;
+}
+
+.isActive {
+  background: var(--color-red);
+  color: var(--color-white);
+}
+
+@media (min-width: 992px) {
+  .filterRow {
+    padding-left: 20px;
+  }
+}

@@ -22,6 +22,7 @@ export default function Landing() {
           width={260}
           height={390}
           className={styles.floatingImage}
+          priority
         />
       </div>
 
@@ -42,6 +43,7 @@ export default function Landing() {
           width={320}
           height={213}
           className={styles.floatingImage}
+          priority
         />
       </div>
     </section>
