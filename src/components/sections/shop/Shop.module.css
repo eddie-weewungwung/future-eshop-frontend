@@ -1,9 +1,6 @@
-/* .shop {
-  padding-top: 40px;
-  padding-left: var(--grid-margin);
-  padding-right: var(--grid-margin);
-  padding-bottom: 60px;
-} */
+.shop{
+  padding-top: 10px;
+}
 
 .grid {
   display: grid;
@@ -19,5 +16,11 @@
 @media (min-width: 992px) {
   .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1600px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
