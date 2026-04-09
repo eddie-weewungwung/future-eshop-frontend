@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./Landing.module.css";
+import Link from "next/link";
 
 export default function Landing() {
   return (
@@ -31,9 +32,9 @@ export default function Landing() {
           built for the ride.
         </h1>
 
-        <a href="/shop" className={`${styles.cta} text-16-20-medium`}>
+        <Link href="/#shop" className={`${styles.cta} text-16-20-medium`}>
           shop now
-        </a>
+        </Link>
       </div>
 
       <div className={styles.bottomRightImageWrap}>

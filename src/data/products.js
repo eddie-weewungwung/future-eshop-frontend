@@ -1,6 +1,7 @@
 const products = [
   {
     id: "moonfall-tee",
+    slug: "moonfall-tee",
     name: "Moonfall Tee",
     category: "tee",
     isOnSale: false,
@@ -11,6 +12,34 @@ const products = [
     imageAlt: "Moonfall Tee",
     sizes: ["S", "M", "L", "XL"],
     href: "/product/moonfall-tee",
+    detailImages: [
+      "/images/product-detail/tee/moonfall-tee/detail-01.png",
+      "/images/product-detail/tee/moonfall-tee/detail-02.png",
+      "/images/product-detail/tee/moonfall-tee/detail-03.png",
+    ],
+    descriptionItems: [
+      "heavyweight fabric",
+      "100% cotton",
+      "durable double-stitch construction",
+      "printed in hong kong",
+    ],
+    sizeChart: {
+      label: "size chart",
+      type: "table",
+      columns: [
+        "size",
+        "length(cm)",
+        "shoulder(cm)",
+        "chest(cm)",
+        "sleeve(cm)",
+      ],
+      rows: [
+        ["S", "72cm", "52cm", "54cm", "23cm"],
+        ["M", "74cm", "53cm", "56cm", "24cm"],
+        ["L", "76cm", "54cm", "58cm", "25cm"],
+        ["XL", "78cm", "56cm", "60cm", "26cm"],
+      ],
+    },
   },
   {
     id: "red-sun-drift-deck",
@@ -135,5 +164,9 @@ const products = [
     href: "/product/essential-bearings",
   },
 ];
+
+export function getProductBySlug(slug) {
+  return products.find((product) => product.slug === slug);
+}
 
 export default products;

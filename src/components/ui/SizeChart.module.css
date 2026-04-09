@@ -1,0 +1,78 @@
+.sizeChartBlock {
+  margin-top: 20px;
+}
+
+.sizeChartButton {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  border-top: 0.5px solid var(--color-gray);
+  border-bottom: 0.5px solid var(--color-gray);
+  background: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-black);
+  cursor: pointer;
+}
+
+.sizeChartTitle,
+.sizeChartSymbol {
+  font-size: var(--text-12-16-medium-size);
+  line-height: var(--text-12-16-medium-line);
+  font-weight: var(--text-12-16-medium-weight);
+}
+
+.blockOpen .sizeChartButton {
+  border-bottom: none;
+}
+
+.sizeChartPanel {
+  display: none;
+}
+
+.isOpen {
+  display: block;
+}
+
+.tableWrap {
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid var(--color-gray);
+  overflow-x: auto;
+}
+
+.table {
+  width: auto;
+  border-collapse: separate;
+  border-spacing: 20px 10px;
+  margin-left: -20px;
+  margin-top: -10px;
+}
+
+.th,
+.td {
+  padding: 0;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.th {
+  color: #606060;
+  font-size: var(--text-10-12-regular-size);
+  line-height: var(--text-10-12-regular-line);
+  font-weight: var(--text-10-12-regular-weight);
+}
+
+.td {
+  color: var(--color-black);
+  font-size: var(--text-12-16-regular-size);
+  line-height: var(--text-12-16-regular-line);
+  font-weight: var(--text-12-16-regular-weight);
+}
+
+@media (min-width: 992px) {
+  .sizeChartBlock {
+    margin-top: 40px;
+  }
+}

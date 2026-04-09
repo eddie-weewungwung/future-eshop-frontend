@@ -7,7 +7,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <nav className={styles.leftNav} aria-label="Primary navigation">
-          <Link href="/shop" className={`${styles.navLink} text-16-20-medium`}>
+          <Link href="/#shop" className={`${styles.navLink} text-16-20-medium`}>
             shop
           </Link>
           <Link href="/about" className={`${styles.navLink} text-16-20-medium`}>

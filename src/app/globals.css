@@ -146,3 +146,7 @@ select {
   line-height: var(--text-10-12-medium-line);
   font-weight: var(--text-10-12-medium-weight);
 }
+
+/* html {
+  scroll-behavior: smooth;
+} */
