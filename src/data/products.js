@@ -43,6 +43,7 @@ const products = [
   },
   {
     id: "red-sun-drift-deck",
+    slug: "red-sun-drift-deck",
     name: "Red Sun Drift Deck",
     category: "deck",
     isOnSale: true,
@@ -53,9 +54,19 @@ const products = [
     imageAlt: "Red Sun Drift Deck",
     sizes: ['8.0"', '8.125"', '8.25"'],
     href: "/product/red-sun-drift-deck",
+    detailImages: [
+      "/images/shop/products/deck/red-sun-drift-deck/primary.png",
+      "/images/shop/products/deck/red-sun-drift-deck/hover.png",
+    ],
+    descriptionItems: [
+      "durable double-stitch construction",
+      "printed in hong kong",
+    ],
+    sizeChart: false,
   },
   {
     id: "cold-bloom-deck",
+    slug: "cold-bloom-deck",
     name: "Cold Bloom Deck",
     category: "deck",
     isOnSale: false,
@@ -66,9 +77,19 @@ const products = [
     imageAlt: "Cold Bloom Deck",
     sizes: ['8.0"', '8.125"', '8.25"'],
     href: "/product/cold-bloom-deck",
+    detailImages: [
+      "/images/shop/products/deck/cold-bloom-deck/primary.png",
+      "/images/shop/products/deck/cold-bloom-deck/hover.png",
+    ],
+    descriptionItems: [
+      "durable double-stitch construction",
+      "printed in hong kong",
+    ],
+    sizeChart: false,
   },
   {
     id: "moonfall-deck",
+    slug: "moonfall-deck",
     name: "Moonfall Deck",
     category: "deck",
     isOnSale: false,
@@ -79,9 +100,19 @@ const products = [
     imageAlt: "Moonfall Deck",
     sizes: ['8.0"', '8.125"', '8.25"'],
     href: "/product/moonfall-deck",
+    detailImages: [
+      "/images/shop/products/deck/moonfall-deck/primary.png",
+      "/images/shop/products/deck/moonfall-deck/hover.png",
+    ],
+    descriptionItems: [
+      "durable double-stitch construction",
+      "printed in hong kong",
+    ],
+    sizeChart: false,
   },
   {
     id: "motion-study-deck",
+    slug: "motion-study-deck",
     name: "Motion Study Deck",
     category: "deck",
     isOnSale: false,
@@ -92,9 +123,19 @@ const products = [
     imageAlt: "Motion Study Deck",
     sizes: ['8.0"', '8.125"', '8.25"'],
     href: "/product/motion-study-deck",
+    detailImages: [
+      "/images/shop/products/deck/motion-study-deck/primary.png",
+      "/images/shop/products/deck/motion-study-deck/hover.png",
+    ],
+    descriptionItems: [
+      "durable double-stitch construction",
+      "printed in hong kong",
+    ],
+    sizeChart: false,
   },
   {
     id: "faces-of-inheritance-deck",
+    slug: "faces-of-inheritance-deck",
     name: "Faces of Inheritance Deck",
     category: "deck",
     isOnSale: false,
@@ -107,9 +148,19 @@ const products = [
     imageAlt: "Faces of Inheritance Deck",
     sizes: ['8.0"', '8.125"', '8.25"'],
     href: "/product/faces-of-inheritance-deck",
+    detailImages: [
+      "/images/shop/products/deck/faces-of-inheritance-deck/primary.png",
+      "/images/shop/products/deck/faces-of-inheritance-deck/hover.png",
+    ],
+    descriptionItems: [
+      "durable double-stitch construction",
+      "printed in hong kong",
+    ],
+    sizeChart: false,
   },
   {
     id: "blue-storm-deck",
+    slug: "blue-storm-deck",
     name: "Blue Storm Deck",
     category: "deck",
     isOnSale: false,
@@ -120,9 +171,19 @@ const products = [
     imageAlt: "Blue Storm Deck",
     sizes: ['8.0"', '8.125"', '8.25"'],
     href: "/product/blue-storm-deck",
+    detailImages: [
+      "/images/shop/products/deck/blue-storm-deck/primary.png",
+      "/images/shop/products/deck/blue-storm-deck/hover.png",
+    ],
+    descriptionItems: [
+      "durable double-stitch construction",
+      "printed in hong kong",
+    ],
+    sizeChart: false,
   },
   {
     id: "crowned-stray-01-deck",
+    slug: "crowned-stray-01-deck",
     name: "Crowned Stray 01 Deck",
     category: "deck",
     isOnSale: false,
@@ -134,9 +195,19 @@ const products = [
     imageAlt: "Crowned Stray 01 Deck",
     sizes: ['8.0"', '8.125"', '8.25"'],
     href: "/product/crowned-stray-01-deck",
+    detailImages: [
+      "/images/shop/products/deck/crowned-stray-01-deck/primary.png",
+      "/images/shop/products/deck/crowned-stray-01-deck/hover.png",
+    ],
+    descriptionItems: [
+      "durable double-stitch construction",
+      "printed in hong kong",
+    ],
+    sizeChart: false,
   },
   {
     id: "essential-wheels-pack",
+    slug: "essential-wheels-pack",
     name: "Essential Wheels Pack",
     category: "wheels",
     isOnSale: false,
@@ -148,9 +219,19 @@ const products = [
     imageAlt: "Essential Wheels Pack",
     sizes: ["52mm", "54mm"],
     href: "/product/essential-wheels-pack",
+    detailImages: [
+      "/images/shop/products/wheels/essential-wheels-pack/primary.png",
+      "/images/shop/products/wheels/essential-wheels-pack/hover.png",
+    ],
+    descriptionItems: [
+      "durable double-stitch construction",
+      "printed in hong kong",
+    ],
+    sizeChart: false,
   },
   {
     id: "essential-bearings",
+    slug: "essential-bearings",
     name: "Essential Bearings",
     category: "bearings",
     isOnSale: false,
@@ -162,6 +243,15 @@ const products = [
     imageAlt: "Essential Bearings",
     sizes: [],
     href: "/product/essential-bearings",
+    detailImages: [
+      "/images/shop/products/bearings/essential-bearings/primary.png",
+      "/images/shop/products/bearings/essential-bearings/hover.png",
+    ],
+    descriptionItems: [
+      "durable double-stitch construction",
+      "printed in hong kong",
+    ],
+    sizeChart: false,
   },
 ];
 

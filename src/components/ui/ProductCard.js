@@ -3,32 +3,30 @@ import Link from "next/link";
 import styles from "./ProductCard.module.css";
 
 function formatPrice(price) {
-  return `$${price.toFixed(2)}`;
-}
-
-function getDiscountPercent(originalPrice, salePrice) {
-  if (!originalPrice || !salePrice || salePrice >= originalPrice) return null;
-  return Math.round(((originalPrice - salePrice) / originalPrice) * 100);
+  return `$${parseFloat(price).toFixed(2)}`;
 }
 
 export default function ProductCard({
   name,
   category,
-  isOnSale = false,
-  originalPrice,
-  salePrice,
-  primaryImage,
+  isOnSale,
+  sale_price,
+  original_price,
+  images,
   hoverImage,
-  imageAlt,
-  sizes = [],
-  href = "/shop",
+  sizes,
+  href,
 }) {
+  const primaryImage = images?.[0]?.src || "";
   const hasPrimaryImage = Boolean(primaryImage);
   const hasHoverImage = Boolean(hoverImage);
   const secondaryImage = hasHoverImage ? hoverImage : primaryImage;
-  const displayPrice = isOnSale && salePrice ? salePrice : originalPrice;
+
+  const displayPrice = isOnSale && sale_price ? sale_price : original_price;
   const discountPercent =
-    isOnSale && salePrice ? getDiscountPercent(originalPrice, salePrice) : null;
+    isOnSale && original_price
+      ? Math.round(((original_price - sale_price) / original_price) * 100)
+      : null;
 
   return (
     <article
@@ -46,7 +44,7 @@ export default function ProductCard({
             <>
               <Image
                 src={primaryImage}
-                alt={imageAlt || name}
+                alt={name}
                 width={600}
                 height={600}
                 className={`${styles.image} ${styles.imagePrimary}`}
@@ -70,13 +68,13 @@ export default function ProductCard({
           <div className={styles.metaRow}>
             <h3 className={styles.name}>{name}</h3>
 
-            {isOnSale && salePrice ? (
+            {isOnSale && sale_price ? (
               <div className={styles.priceGroup}>
                 <p className={`${styles.price} ${styles.originalPrice}`}>
-                  {formatPrice(originalPrice)}
+                  {formatPrice(original_price)}
                 </p>
                 <p className={`${styles.price} ${styles.salePrice}`}>
-                  {formatPrice(salePrice)}
+                  {formatPrice(sale_price)}
                 </p>
               </div>
             ) : (

@@ -4,28 +4,54 @@ import { notFound } from "next/navigation";
 import Header from "@/components/ui/Header";
 import ProductCard from "@/components/ui/ProductCard";
 import SizeChart from "@/components/ui/SizeChart";
-import products, { getProductBySlug } from "@/data/products";
 import styles from "./page.module.css";
 
 function formatPrice(price) {
-  return `$${price.toFixed(2)}`;
+  return `$${parseFloat(price).toFixed(2)}`;
 }
 
-function getRelatedProducts(currentProduct) {
-  return products
-    .filter((product) => product.slug !== currentProduct.slug)
-    .slice(0, 4);
+// function getRelatedProducts(currentProduct) {
+//   return products
+//     .filter((product) => product.slug !== currentProduct.slug)
+//     .slice(0, 4);
+// }
+
+async function fetchProductBySlug(slug) {
+  try {
+    const apiUrl =
+      process.env.NEXT_PUBLIC_API_URL || "http://192.168.1.247:3000";
+    const response = await fetch(`${apiUrl}/api/products/${slug}`);
+
+    if (!response.ok) {
+      return null;
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Failed to fetch product:", error);
+    return null;
+  }
 }
 
 export default async function ProductDetailPage({ params }) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await fetchProductBySlug(slug);
+
+  const name = product.name;
+  const sale_price = product.sale_price;
+  const isOnSale = Boolean(product.sale_price);
+  const sizes =
+    product.attributes.find((attr) => attr.name === "size")?.options || [];
+  const images = product.images;
+  const original_price = product.regular_price || product.price;
+  const description = product.description;
+  const sizeChart = "";
 
   if (!product) {
     notFound();
   }
 
-  const relatedProducts = getRelatedProducts(product);
+  // const relatedProducts = getRelatedProducts(product);
 
   return (
     <>
@@ -41,25 +67,25 @@ export default async function ProductDetailPage({ params }) {
                 </Link>
                 <div className={styles.titleBlock}>
                   <h1 className={`${styles.title} text-16-20-medium`}>
-                    {product.name}
+                    {name}
                   </h1>
 
-                  {product.isOnSale && product.salePrice ? (
+                  {isOnSale && salePrice ? (
                     <div className={styles.priceGroup}>
                       <p
                         className={`${styles.price} ${styles.salePrice} text-16-20-medium`}
                       >
-                        {formatPrice(product.salePrice)}
+                        {formatPrice(sale_price)}
                       </p>
                       <p
                         className={`${styles.price} ${styles.originalPrice} text-16-20-medium`}
                       >
-                        {formatPrice(product.originalPrice)}
+                        {formatPrice(original_price)}
                       </p>
                     </div>
                   ) : (
                     <p className={`${styles.price} text-16-20-medium`}>
-                      {formatPrice(product.originalPrice)}
+                      {formatPrice(original_price)}
                     </p>
                   )}
                 </div>
@@ -67,9 +93,9 @@ export default async function ProductDetailPage({ params }) {
                 <div className={styles.purchaseBlock}>
                   <div className={styles.optionsRow}>
                     <div className={styles.sizeOptions}>
-                      {product.sizes.map((size, index) => (
+                      {sizes.map((size, index) => (
                         <button
-                          key={`${product.slug}-${size}-${index}`}
+                          key={`${slug}-${size}-${index}`}
                           type="button"
                           className={`${styles.sizeButton} ${
                             index === 1 ? styles.sizeButtonActive : ""
@@ -101,27 +127,21 @@ export default async function ProductDetailPage({ params }) {
 
                 <div className={styles.detailsBlock}>
                   <p className={styles.blockTitle}>product details</p>
-                  <ul className={styles.detailList}>
-                    {product.descriptionItems.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+                  <ul className={styles.detailList}>{description}</ul>
                 </div>
 
-                {product.sizeChart && (
-                  <SizeChart sizeChart={product.sizeChart} />
-                )}
+                {sizeChart && <SizeChart sizeChart={sizeChart} />}
               </div>
             </aside>
 
             <div className={styles.imageColumn}>
               <div className={styles.mobileImageSlider}>
                 <div className={styles.mobileImageTrack}>
-                  {product.detailImages.map((image, index) => (
-                    <div key={image} className={styles.mobileImageFrame}>
+                  {images.map((image, index) => (
+                    <div key={image.id} className={styles.mobileImageFrame}>
                       <Image
-                        src={image}
-                        alt={`${product.name} image ${index + 1}`}
+                        src={image.src}
+                        alt={`${name} image ${index + 1}`}
                         width={1200}
                         height={1200}
                         className={styles.mobileImage}
@@ -142,11 +162,11 @@ export default async function ProductDetailPage({ params }) {
               </div>
 
               <div className={styles.desktopImageStack}>
-                {product.detailImages.map((image, index) => (
+                {images.map((image, index) => (
                   <Image
-                    key={image}
-                    src={image}
-                    alt={`${product.name} image ${index + 1}`}
+                    key={image.id}
+                    src={image.src}
+                    alt={`${name} image ${index + 1}`}
                     width={1600}
                     height={1600}
                     className={styles.desktopDetailImage}
@@ -165,7 +185,7 @@ export default async function ProductDetailPage({ params }) {
         >
           <p className={styles.relatedTitle}>you may also like</p>
 
-          <div className={styles.relatedGrid}>
+          {/* <div className={styles.relatedGrid}>
             {relatedProducts.map((relatedProduct) => (
               <ProductCard
                 key={relatedProduct.id}
@@ -181,7 +201,7 @@ export default async function ProductDetailPage({ params }) {
                 href={relatedProduct.href}
               />
             ))}
-          </div>
+          </div> */}
         </section>
       </main>
     </>
